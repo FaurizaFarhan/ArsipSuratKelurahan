@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KelurahanArsipSurat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\support\Facades\Storage;
 
 class KelurahanArsipSuratController extends Controller
@@ -98,13 +99,11 @@ class KelurahanArsipSuratController extends Controller
      * @param  \App\Models\KelurahanArsipSurat  $kelurahanArsipSurat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KelurahanArsipSurat $kelurahanArsipSurat)
+    public function destroy($id)
     {
-        //
-        // Storage::delete('app/public/'.$kelurahanArsipSurat->file_surat);
-        unlink(storage_path('app/public/'.$kelurahanArsipSurat->file_surat));
 
-        $kelurahanArsipSurat->delete();
+
+        DB::table('kelurahan_arsip_surats')->where('id', $id)->delete();
         return redirect()->route('surat.index')-> with(['data' => 'Arsip Surat Berhasil Dihapus', 'alert' => 'alert-danger']);
     }
 

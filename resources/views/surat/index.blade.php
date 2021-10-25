@@ -56,7 +56,7 @@
                 Apa Anda yakin ingin menghapus arsip surat ini ?
             </div>
             <div class="modal-footer flex justify-content-center">
-                <form action="{{ route('surat.destroy', ['surat' => $surat->id])}}" method="">
+                <form action="{{ route('surat.destroy', ['surat' => $surat->id])}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="button" class="btn btn-danger btn-icon" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>

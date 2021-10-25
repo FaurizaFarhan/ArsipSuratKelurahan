@@ -31,7 +31,7 @@ Route::get('/surat/{surat}/show', [KelurahanArsipSuratController::class, 'show']
 
 Route::put('/surat/{surat}/update', [KelurahanArsipSuratController::class, 'update'])->name('surat.update');
 
-Route::get('/surat/{surat}/delete', [KelurahanArsipSuratController::class, 'destroy'])->name('surat.destroy');
+Route::delete('/surat/{surat}/delete', [KelurahanArsipSuratController::class, 'destroy'])->name('surat.destroy');
 
 Route::get('/surat/download/{surat}', [KelurahanArsipSuratController::class, 'download'])->name('surat.download');
 
